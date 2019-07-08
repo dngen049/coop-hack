@@ -1,30 +1,57 @@
 import React from 'react';
+import {withRouter} from 'react-router';
 import { Link } from 'react-router-dom'
 
-  export default class Nav extends React.Component {
-    render() {    
-      return (
-        <nav className="Nav">
-          <div className="Nav__container">
-            <Link to="/" className="Nav__brand">
-              <img src="logo.svg" className="Nav__logo" />
-            </Link>
 
-            <div className="Nav__right">
-              <ul className="Nav__item-wrapper">
-                <li className="Nav__item">
-                  <Link className="Nav__link" to="/path1">Link 1</Link>
-                </li>
-                <li className="Nav__item">
-                  <Link className="Nav__link" to="/path2">Link 2</Link>
-                </li>
-                <li className="Nav__item">
-                  <Link className="Nav__link" to="/path3">Link 3</Link>
-                </li>
-              </ul>
-            </div>
+class Nav extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    // componentDidMount(){
+    //     this.props.isAuthentificated = 'true'
+    // }
+    render() { 
+        let navStyle = {
+        };
+        console.log(this.props.location.pathname )
+        if(this.props.location.pathname == '/'){
+            navStyle = {
+                padding: '0',
+                border_radius: '0',
+                visibility: 'hidden'
+            };
+        }else{
+            navStyle = {
+                padding: '0',
+                borderRadius: '0'
+            };
+        }
+      return (
+        <nav style={navStyle}  class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <Link class="navbar-brand" to="/HomePage">Coop Hack</Link>
           </div>
-        </nav>
+          <ul class="nav navbar-nav">
+            <li ><Link className="Nav__link" to="/Search">Job Search</Link></li>
+            <li ><Link className="Nav__link" to="/App">My application</Link></li>
+            
+           
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span></a>
+                  <ul class="dropdown-menu">
+                        <li><a className="Nav__link" ><span class="glyphicon glyphicon-cog"></span> Setting</a></li>
+                        <li> <Link className="Nav__link" to="/Profile"> <span class="glyphicon glyphicon-home"></span> Profile</Link></li>
+                        <li><Link className="Nav__link" to="/"><span class="glyphicon glyphicon-log-out"></span> Logout</Link></li>
+                  </ul>
+              </li>
+          </ul>
+        </div>
+      </nav>
       );
     }
   }
+
+
+export default  withRouter(Nav);

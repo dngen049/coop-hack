@@ -7,9 +7,7 @@ class Nav extends React.Component {
     constructor(props){
         super(props);
     }
-    // componentDidMount(){
-    //     this.props.isAuthentificated = 'true'
-    // }
+    
     render() { 
         let navStyle = {
         };

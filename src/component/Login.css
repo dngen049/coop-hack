@@ -1,0 +1,13 @@
+.form-control{
+    height: 55px;
+}
+.form-group {
+    margin-bottom: 30px;
+}
+.Auth-link{
+    display: contents;
+}
+.Auth-link > li{
+    list-style-type: none;
+    margin-bottom:10px;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import LogIn from './../component/LogIn'
 
 export default class WelcomePage extends React.Component {
   constructor(props){
@@ -9,10 +10,7 @@ export default class WelcomePage extends React.Component {
   render(){
     return (
       <div className="container" style={{display:"flex", flexDirection:"row", flexWrap:"wrap", height:"100vh"}}>
-        {/* <h1>Welcome Page</h1>
-        <p>
-          <Link to="/HomePage">Go to My Home Page</Link> .
-        </p> */}
+        
         <div className="description" style={{flexGrow:"2"}}>
           <h1>Coop Hack</h1>
           <ul>
@@ -21,21 +19,8 @@ export default class WelcomePage extends React.Component {
             <li>Start applying for your next coop term today !</li>
           </ul>
         </div>
-        <div className="Auth" style={{flexGrow:"2"}} >
-          <div>
-              <h3>Login</h3>
-              <form>
-                <input placeholder="Username"></input>
-                <input placeholder="Password"></input>
-                <div>
-                  <a>Forgot Password</a>
-                </div>
-                <div>
-                  <button>Log in</button>
-                  <button>Sign up</button>
-                </div>
-              </form>
-          </div>
+        <div className="Auth" style={{flexGrow:"2", textAlign:"center",     boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)", borderRadius: "19px"}} >
+          <LogIn/>
          
         </div>
         <div className="Quote" style={{alignItems:"flex-end", flexGrow:"2", textAlign:"center"}}>

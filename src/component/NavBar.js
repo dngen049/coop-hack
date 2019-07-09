@@ -11,7 +11,6 @@ class Nav extends React.Component {
     render() { 
         let navStyle = {
         };
-        console.log(this.props.location.pathname )
         if(this.props.location.pathname == '/'){
             navStyle = {
                 padding: '0',

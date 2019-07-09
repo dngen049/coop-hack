@@ -24,15 +24,16 @@ class Nav extends React.Component {
                 borderRadius: '0'
             };
         }
+        
       return (
         <nav style={navStyle}  class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
-            <Link class="navbar-brand" to="/HomePage">Coop Hack</Link>
+            <Link  class="navbar-brand" to="/HomePage">Coop Hack</Link>
           </div>
           <ul class="nav navbar-nav">
-            <li ><Link className="Nav__link" to="/Search">Job Search</Link></li>
-            <li ><Link className="Nav__link" to="/App">My application</Link></li>
+            <li ><Link activeClassName="active" className="Nav__link" to="/Search">Job Search</Link></li>
+            <li ><Link activeClassName="active" className="Nav__link" to="/App">My application</Link></li>
             
            
           </ul>

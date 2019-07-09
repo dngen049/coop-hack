@@ -9,7 +9,7 @@ import Profile from './pages/ProfilePage'
 import Search from './pages/SearchPage'
 import Job from './pages/JobDetailPage'
 import NavBar from './component/NavBar';
-
+import './App.css';
 
 
 export default function App(props) {

@@ -35,9 +35,9 @@ export default class WelcomePage extends React.Component {
               color: "transparent",
               transition:" all .3s ease",
               textDecoration: "none"}} src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"></img>
-              <p style={{textAlign:"center",verticalAlign:"middle"}}>"I found my next coop <br/>
+              <p style={{textAlign:"center",verticalAlign:"middle"}}><span className="fa fa-quote-left"></span>  I found my next coop <br/>
                     term with <br/>
-                    thanks to this app"</p>
+                    thanks to this app  <span className="fa fa-quote-right"></span></p>
             </div>
             <div style={{display:"inline-flex", padding:"40px"}}>
               <img className="Profile-pic" style={{borderRadius: "50%", height: "100px",
@@ -50,9 +50,9 @@ export default class WelcomePage extends React.Component {
               color: "transparent",
               transition:" all .3s ease",
               textDecoration: "none"}} src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"></img>
-              <p style={{textAlign:"center",verticalAlign:"middle"}}>"I found my next coop <br/>
+              <p style={{textAlign:"center",verticalAlign:"middle"}}><span className="fa fa-quote-left"></span>  I found my next coop <br/>
                     term with <br/>
-                    thanks to this app"</p>
+                    thanks to this app  <span className="fa fa-quote-right"></span></p>
             </div>
             
             <div style={{display:"inline-flex", padding:"40px"}}>
@@ -66,9 +66,9 @@ export default class WelcomePage extends React.Component {
               color: "transparent",
               transition:" all .3s ease",
               textDecoration: "none"}} src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"></img>
-              <p style={{textAlign:"center",verticalAlign:"middle"}}>"I found my next coop <br/>
+              <p style={{textAlign:"center",verticalAlign:"middle"}}><span className="fa fa-quote-left"></span>  I found my next coop <br/>
                     term with <br/>
-                    thanks to this app"</p>
+                    thanks to this app  <span className="fa fa-quote-right"></span></p>
             </div>
             
           </div>

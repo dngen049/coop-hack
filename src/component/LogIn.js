@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FormGroup, FormControl } from "react-bootstrap"
+import { Button, FormGroup, FormControl, Form } from "react-bootstrap"
 import {withRouter} from 'react-router';
 import './Login.css';
 
@@ -10,7 +10,8 @@ class LogIn extends React.Component{
             email: "",
             password: "",
             confirmpassword : "",
-            LogMode: true
+            LogMode: true,
+            validated:false,
          
         };
         
@@ -26,15 +27,23 @@ class LogIn extends React.Component{
 
     handleChange = event => {
         this.setState({
-        [event.target.id]: event.target.value
+        [event.target.id]: event.target.value, validated:false
     });
     }
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state.email + ": " + this.state.password);
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(re.test(String(this.state.email).toLowerCase())){
+            // console.log(this.state.email + ": " + this.state.password);
+            
+            this.props.history.push('/HomePage')
+        }else{
+            this.setState({ validated: true });
+        }
         
-        this.props.history.push('/HomePage')
+        
+        
     }
     render(){
         let ForgortPassA = {
@@ -52,60 +61,74 @@ class LogIn extends React.Component{
             <div className="Login" style={{margin:"15px"}}>
                 
                 <h3 style={{marginBottom:"20px"}}>{this.state.LogMode ? "Login" : "Sign up"}</h3>
-                <form onSubmit={this.handleSubmit}>
-                <FormGroup controlId="email" bsSize="large">
+                <Form noValidate   onSubmit={this.handleSubmit}>
+                    <FormGroup controlId="email" >
                   
-                    <FormControl 
-                    placeholder="Email"
-                    autoFocus
-                    type="email"
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                    />
-                </FormGroup>
-                <FormGroup controlId="password" bsSize="large">
-                  
-                    <FormControl
-                    placeholder="Password"
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    type="password"
-                    />
-                </FormGroup>
-
-                <FormGroup controlId="confirmpassword" bsSize="large" hidden={this.state.LogMode}>
-                  
-                    <FormControl
-                    placeholder="Confirm password"
-                    value={this.state.confirmpassword}
-                    onChange={this.handleChange}
-                    type="password"
-                    />
-                </FormGroup>
+                        <FormControl 
+                        placeholder="Email"
+                        
+                        isInvalid = {this.state.validated}
+                        type="email"
+                        value={this.state.email}
+                        required
+                        onChange={this.handleChange}
+                        />
+                        <FormControl.Feedback type="invalid">
+                            invalid Email
+                        </FormControl.Feedback>
+                    </FormGroup>
                 
-                <div style={{display:"flex", justifyContent:"space-between"}}>
-                    <div style={{textAlign:"left"}} >
-                        <ul className="Auth-link">
-                            <li><a style={ForgortPassA} href="#">Forgot Password</a></li>
-                            <li><a onClick={() => this.setState({LogMode:!this.state.LogMode})} href="#">{this.state.LogMode ? "Don't have an account" : "Already have an account"}</a></li>
-                        </ul>
+                     <FormGroup controlId="password">
+                  
+                        <FormControl
+                      
+                        isInvalid = {this.state.validated}
+                        placeholder="Password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        required
+                        type="password"
+                        />
+                        <FormControl.Feedback  type="invalid">
+                            Invalid Password
+                        </FormControl.Feedback>
+                    </FormGroup>
+
+                    <FormGroup controlId="confirmpassword"  hidden={this.state.LogMode}>
+                    
+                        <FormControl
+                        placeholder="Confirm password"
+                        value={this.state.confirmpassword}
+                        onChange={this.handleChange}
+                        type="password"
+                        />
+                        <Form.Text style={{textAlign:"left"}}>Make sure it's the same password</Form.Text>
+                    </FormGroup>
+                
+                    
+                    <div style={{display:"flex", justifyContent:"space-between"}}>
+                        <div style={{textAlign:"left"}} >
+                            <ul className="Auth-link">
+                                <li><a style={ForgortPassA} href="#">Forgot Password</a></li>
+                                <li><a onClick={() => this.setState({LogMode:!this.state.LogMode})} href="#">{this.state.LogMode ? "Don't have an account" : "Already have an account"}</a></li>
+                            </ul>
+                            
                         
-                       
+                        </div>
+                        <div  >
+                            <Button
+                                block
+                                style={{width:"100px"}}
+                                disabled={!this.validateForm()}
+                                type="submit">
+                                {this.state.LogMode ? "Login" : "Sign up"}
+                            </Button>
+                            
+                        </div>
                     </div>
-                    <div  >
-                        <Button
-                            block
-                            style={{width:"100px"}}
-                            disabled={!this.validateForm()}
-                            type="submit">
-                            {this.state.LogMode ? "Login" : "Sign up"}
-                        </Button>
-                        
-                    </div>
-                </div>
+                
                
-               
-                </form>
+                </Form>
             </div>
         )
     }

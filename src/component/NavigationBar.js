@@ -1,7 +1,8 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 import { Link } from 'react-router-dom'
-import { Navbar,NavDropdown, Nav, Glyphicon } from "react-bootstrap"
+import { Navbar, Nav, Dropdown , DropdownButton} from "react-bootstrap"
+
 
 class NavigationBar extends React.Component {
     constructor(props){
@@ -9,24 +10,21 @@ class NavigationBar extends React.Component {
     }
     
     render() { 
-      const navDropdownTitle = (<span className="glyphicon glyphicon-user"></span>);
+      const navDropdownTitle = (<span className="fa fa-user"></span>);
         let navStyle = {
         };
         if(this.props.location.pathname == '/'){
             navStyle = {
-                padding: '0',
-                border_radius: '0',
                 visibility: 'hidden'
             };
         }else{
             navStyle = {
-                padding: '0',
-                borderRadius: '0'
+                visibility:"initial"
             };
         }
         
       return (
-        <Navbar  bg="light" >
+        <Navbar style={navStyle} variant="pills"  bg="light" >
         <Navbar.Brand as={Link} to="/HomePage">Coop Hack</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse  id="basic-navbar-nav">
@@ -36,14 +34,16 @@ class NavigationBar extends React.Component {
            
           </Nav>
           <Nav>
-              <NavDropdown  title="hello" className="pull-right"  id="basic-nav-dropdown" style={{
-                marginRight: 15
-              }} pullRight="false" >
-                <NavDropdown.Item href="#"><span className="glyphicon glyphicon-cog"></span> Setting</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/Profile"> <span className="glyphicon glyphicon-home"></span> Profile</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/" ><span className="glyphicon glyphicon-log-out"></span> Logout</NavDropdown.Item>
-        
-              </NavDropdown>
+            
+             
+            <DropdownButton
+                alignRight
+                title={navDropdownTitle}
+                id="dropdown-menu-align-right">
+                  <Dropdown.Item href="#"><span className="fa fa-cog"></span> Setting</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/Profile"> <span className="fa fa-home"></span> Profile</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/" ><span className="fa fa-sign-out"></span> Logout</Dropdown.Item>
+            </DropdownButton>
           </Nav>
          
         </Navbar.Collapse >

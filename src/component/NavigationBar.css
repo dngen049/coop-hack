@@ -1,11 +1,18 @@
-.nav-pills .nav-link.active, .nav-pills .show > .nav-pills{
-    color: white;
-    background-color:  #007bff;
-}
+
 #basic-navbar-nav > div > div.mr-auto > a.Brand.nav-link.active,
 #basic-navbar-nav > div > div.mr-auto > a.Brand.nav-link{
-    font-weight:900;
-    color: #007bff;
+    font-weight:bolder;
+    color:White;
     text-decoration: none;
     background-color: transparent;
-}
+   
+} 
+
+
+.navbar-dark .navbar-nav .show > .nav-link, 
+.navbar-dark .navbar-nav .active > .nav-link, 
+.navbar-dark .navbar-nav .nav-link.show,
+ .navbar-dark .navbar-nav .nav-link.active{
+    color: white ;
+    font-weight:900;
+ }

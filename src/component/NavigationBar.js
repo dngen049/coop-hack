@@ -24,7 +24,7 @@ class NavigationBar extends React.Component {
         }
         
       return (
-        <Navbar style={navStyle} variant="primary"  bg="light" >
+        <Navbar style={navStyle} variant="dark"  bg="primary" >
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse  id="basic-navbar-nav">

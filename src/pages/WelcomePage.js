@@ -32,7 +32,7 @@ export default class WelcomePage extends React.Component {
         </div>
 
         <div className="container" style={{backgroundAttachment:"fixed"}}>
-          <div className="Quote" style={{marginTop:"50px"}}>
+          <div className="Quote" style={{marginTop:"50px", display:"flex", flexDirection:"row"}}>
                 <Quote/>
                 <Quote/>
                 <Quote/>

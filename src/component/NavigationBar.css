@@ -1,0 +1,11 @@
+.nav-pills .nav-link.active, .nav-pills .show > .nav-pills{
+    color: white;
+    background-color:  #007bff;
+}
+#basic-navbar-nav > div > div.mr-auto > a.Brand.nav-link.active,
+#basic-navbar-nav > div > div.mr-auto > a.Brand.nav-link{
+    font-weight:900;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}

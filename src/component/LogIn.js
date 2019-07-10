@@ -10,7 +10,7 @@ class LogIn extends React.Component{
             email: "",
             password: "",
             confirmpassword : "",
-            LogMode: true,
+            LogMode: false,
             validated:false,
          
         };
@@ -60,7 +60,7 @@ class LogIn extends React.Component{
         return(
             <div className="Login" style={{margin:"15px"}}>
                 
-                <h3 style={{marginBottom:"20px"}}>{this.state.LogMode ? "Login" : "Sign up"}</h3>
+                <h3 style={{marginBottom:"20px", color:"black"}}>{this.state.LogMode ? "Login" : "Sign up"}</h3>
                 <Form noValidate   onSubmit={this.handleSubmit}>
                     <FormGroup controlId="email" >
                   

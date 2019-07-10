@@ -2,7 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router';
 import { Link } from 'react-router-dom'
 import { Navbar, Nav, Dropdown , DropdownButton} from "react-bootstrap"
-
+import "./NavigationBar.css"
 
 class NavigationBar extends React.Component {
     constructor(props){
@@ -15,35 +15,39 @@ class NavigationBar extends React.Component {
         };
         if(this.props.location.pathname == '/'){
             navStyle = {
-                visibility: 'hidden'
+                display: 'none'
             };
         }else{
             navStyle = {
-                visibility:"initial"
+                display:"block"
             };
         }
         
       return (
-        <Navbar style={navStyle} variant="pills"  bg="light" >
-        <Navbar.Brand as={Link} to="/HomePage">Coop Hack</Navbar.Brand>
+        <Navbar style={navStyle} variant="primary"  bg="light" >
+        
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse  id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link as={Link} to="/Search" > Search</Nav.Link>
-            <Nav.Link as={Link} to="/App">My application</Nav.Link>
+          <Nav variant="pills" defaultActiveKey="/HomePage" style={{width:"100%"}}>
+          <div className="mr-auto" style={{display:"flex"}}  >
+            <Nav.Link className="Brand"  eventKey="link-1"   as={Link} to="/HomePage" >Coop Hack</Nav.Link>
+            <Nav.Link  eventKey="link-2"   as={Link} to="/Search" > Search</Nav.Link>
+            <Nav.Link  eventKey="link-3"   as={Link} to="/App">My application</Nav.Link>
            
-          </Nav>
-          <Nav>
+          </div>
+          <div  >
             
              
             <DropdownButton
                 alignRight
                 title={navDropdownTitle}
                 id="dropdown-menu-align-right">
-                  <Dropdown.Item href="#"><span className="fa fa-cog"></span> Setting</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/Profile"> <span className="fa fa-home"></span> Profile</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/" ><span className="fa fa-sign-out"></span> Logout</Dropdown.Item>
+                  <Dropdown.Item ><span className="fa fa-cog" ></span> Setting</Dropdown.Item>
+                <Dropdown.Item eventKey="link-4" as={Link} to="/Profile"> <span className="fa fa-home"></span> Profile</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/"  ><span className="fa fa-sign-out"></span> Logout</Dropdown.Item>
             </DropdownButton>
+          </div>
+
           </Nav>
          
         </Navbar.Collapse >

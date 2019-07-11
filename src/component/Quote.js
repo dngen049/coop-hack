@@ -13,7 +13,7 @@ class Quote extends React.Component {
         
         return (
            
-                <div style={{ padding:"40px", width:"max-content", height:"fit-content",   boxShadow: "rgba(0, 0, 0, 0.2) 0px 4px 19px 0px",borderRadius: "20px",  margin:"5px"}}>
+                <div style={{ padding:"40px", width:"max-content", height:"fit-content", backgroundColor:"white", boxShadow: "rgba(0, 0, 0, 0.2) 0px 4px 19px 0px",borderRadius: "20px",  margin:"5px"}}>
                     <table>
                         <tbody>
                             <tr>
@@ -37,7 +37,7 @@ class Quote extends React.Component {
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colSpan="2">
                                      <h5 style={{textAlign:"right"}}>- Mr iglesias Gozalez</h5>
                                 </td>
                             </tr>

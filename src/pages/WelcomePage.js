@@ -3,6 +3,7 @@ import LogIn from './../component/LogIn'
 import "./WelcomePage.css"
 import Quote from './../component/Quote'
 
+
 export default class WelcomePage extends React.Component {
   constructor(props){
     super(props)
@@ -32,7 +33,7 @@ export default class WelcomePage extends React.Component {
         </div>
 
         <div className="container" style={{backgroundAttachment:"fixed"}}>
-          <div className="Quote" style={{marginTop:"50px", display:"flex", flexDirection:"row"}}>
+          <div className="Quote" style={{marginTop:"-70px", display:"flex", flexDirection:"row"}}>
                 <Quote/>
                 <Quote/>
                 <Quote/>

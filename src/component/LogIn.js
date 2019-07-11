@@ -1,17 +1,23 @@
 import React from 'react';
 import { Button, FormGroup, FormControl, Form } from "react-bootstrap"
 import {withRouter} from 'react-router';
+import users from '../data/users'
 import './Login.css';
 
 class LogIn extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            firstName:"",
+            lastName:"",
             email: "",
             password: "",
             confirmpassword : "",
             LogMode: false,
-            validated:false,
+            invalidEmail:false,
+            invalidPassword: false,
+            PasswordErrorMsg:"",
+            invalidConfirmPassword: false
          
         };
         
@@ -20,14 +26,15 @@ class LogIn extends React.Component{
         if(this.state.LogMode){
             return this.state.email.length > 0 && this.state.password.length > 0;
         }else{
-            return this.state.email.length > 0 && this.state.password.length > 0 && this.state.confirmpassword.length > 0 && this.state.confirmpassword === this.state.password ;
+            return this.state.email.length > 0 && this.state.password.length > 0 && this.state.confirmpassword.length > 0 && this.state.firstName.length > 0 && this.state.lastName.length > 0  ;
         }
     }
    
 
     handleChange = event => {
         this.setState({
-        [event.target.id]: event.target.value, validated:false
+        [event.target.id]: event.target.value,   invalidEmail:false,
+        invalidPassword: false, invalidConfirmPassword:false
     });
     }
 
@@ -35,11 +42,34 @@ class LogIn extends React.Component{
         event.preventDefault();
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(re.test(String(this.state.email).toLowerCase())){
-            // console.log(this.state.email + ": " + this.state.password);
-            
-            this.props.history.push('/HomePage')
+            if(this.state.LogMode){
+                const user = users.find(((data) => data.email === this.state.email))
+                console.log(user);
+                if(user !==  undefined){
+                    if(user.passWord === this.state.password){
+                        this.props.history.push('/HomePage')
+                    }else{
+                        this.setState({ invalidPassword: true, PasswordErrorMsg:"Invalid password" });
+                    }
+                }else{
+                    this.setState({ invalidEmail: true });
+                }
+            }else{
+                if(this.state.password.length < 6){
+                    this.setState({ invalidPassword: true, PasswordErrorMsg:"Invalid password, password must at least 6 character long" });
+                }else if(this.state.confirmpassword !== this.state.password){
+                    this.setState({ invalidConfirmPassword: true });
+                }else{
+                    this.props.history.push('/HomePage')
+                }
+            }
+          
         }else{
-            this.setState({ validated: true });
+            if(this.state.LogMode){
+                this.setState({ invalidPassword: true ,  invalidEmail: true, PasswordErrorMsg:"Invalid password"  });
+            }else{
+                this.setState({ invalidPassword: true ,  invalidEmail: true, invalidConfirmPassword: true , PasswordErrorMsg:"Invalid password, password must at least 6 character long"  });
+            }
         }
         
         
@@ -62,12 +92,32 @@ class LogIn extends React.Component{
                 
                 <h3 style={{marginBottom:"20px", color:"black"}}>{this.state.LogMode ? "Login" : "Sign up"}</h3>
                 <Form noValidate   onSubmit={this.handleSubmit}>
+                    <FormGroup controlId="firstName" hidden={this.state.LogMode} >
+                    
+                        <FormControl 
+                        placeholder="First name"
+                        type="name"
+                        value={this.state.firstName}
+                        onChange={this.handleChange}
+                        />
+                        
+                    </FormGroup>
+                    <FormGroup controlId="lastName" hidden={this.state.LogMode} >
+                    
+                        <FormControl 
+                        placeholder="Last name"
+                        type="name"
+                        value={this.state.lastName}
+                        onChange={this.handleChange}
+                        />
+                        
+                    </FormGroup>
                     <FormGroup controlId="email" >
                   
                         <FormControl 
                         placeholder="Email"
                         
-                        isInvalid = {this.state.validated}
+                        isInvalid = {this.state.invalidEmail}
                         type="email"
                         value={this.state.email}
                         required
@@ -82,7 +132,7 @@ class LogIn extends React.Component{
                   
                         <FormControl
                       
-                        isInvalid = {this.state.validated}
+                        isInvalid = {this.state.invalidPassword}
                         placeholder="Password"
                         value={this.state.password}
                         onChange={this.handleChange}
@@ -90,19 +140,23 @@ class LogIn extends React.Component{
                         type="password"
                         />
                         <FormControl.Feedback  type="invalid">
-                            Invalid Password
+                            {this.state.PasswordErrorMsg}
                         </FormControl.Feedback>
                     </FormGroup>
 
                     <FormGroup controlId="confirmpassword"  hidden={this.state.LogMode}>
                     
                         <FormControl
+                        isInvalid={this.state.invalidConfirmPassword}
                         placeholder="Confirm password"
                         value={this.state.confirmpassword}
                         onChange={this.handleChange}
+                        required
                         type="password"
                         />
-                        <Form.Text style={{textAlign:"left"}}>Make sure it's the same password</Form.Text>
+                         <FormControl.Feedback  type="invalid">
+                            The password does not match
+                        </FormControl.Feedback>
                     </FormGroup>
                 
                     

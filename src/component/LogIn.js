@@ -20,7 +20,7 @@ class LogIn extends React.Component{
         if(this.state.LogMode){
             return this.state.email.length > 0 && this.state.password.length > 0;
         }else{
-            return this.state.email.length > 0 && this.state.password.length > 0 && this.state.confirmpassword.length > 0 && this.state.confirmpassword == this.state.password ;
+            return this.state.email.length > 0 && this.state.password.length > 0 && this.state.confirmpassword.length > 0 && this.state.confirmpassword === this.state.password ;
         }
     }
    

@@ -7,6 +7,7 @@ export default class SearchPage extends React.Component {
   }
 
   render(){
+    console.log(this.props.location.state);
     return (
       <div className="container">
         <h1>Search Page</h1>

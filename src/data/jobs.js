@@ -1,6 +1,7 @@
 const jobs = [
     {   
-        id:"job1",
+        key:"1234",
+        jobID:"Job1",
         type:"engineering",
         jobTtitle:"User Experience Designer",
         rating:"4.2/5",
@@ -17,7 +18,8 @@ const jobs = [
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     },
     {   
-        id:"job2",
+        key:"4567",
+        jobID:"Job2",
         jobTtitle:"User Experience Designer",
         type:"marketing",
         rating:"4.2/5",
@@ -35,7 +37,8 @@ const jobs = [
     
     },
     {   
-        id:"job3",
+        key:"8910",
+        jobID:"Job1",
         jobTtitle:"User Experience Designer",
         rating:"4.2/5",
         location:"Richmond, VA",

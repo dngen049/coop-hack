@@ -15,7 +15,7 @@ class HomePage extends React.Component {
         TeleComSelected: false,
         MedSelected: false,
     }
-    // this.handleDomainClick = this.handleDomainClick.bind(this)
+    
   }
   handleChange = event => {
     this.setState({

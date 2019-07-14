@@ -10,10 +10,10 @@ export default class JobDetailPage extends React.Component {
   constructor(props){
     super(props)
   }
-
+ 
 
   render(){
-    const x = jobs.find(((data) => data.id === "job1"))
+    const x = jobs.find(((data) => data.jobID === "Job1"))
     console.log(x.jobTtitle);
     return (
 

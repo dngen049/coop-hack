@@ -1,6 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router';
-import {Form, FormGroup, FormControl, Button, style} from 'react-bootstrap'
+import {Typeahead} from 'react-bootstrap-typeahead';
+import {Form, FormGroup, Button, ButtonGroup} from 'react-bootstrap'
 import CountUp from 'react-countup';
 import "./HomePage.css"
 
@@ -8,8 +9,8 @@ class HomePage extends React.Component {
   constructor(props){
     super(props)
     this.state={
-        search:"",
-        region:"",
+        search:[],
+        region:[],
         EngSelected:false,
         FinSelected: false,
         TeleComSelected: false,
@@ -17,30 +18,26 @@ class HomePage extends React.Component {
     }
     
   }
-  handleChange = event => {
-    this.setState({
-        [event.target.id]: event.target.value,
-    });
-  }
+ 
   handleSubmit = event => {
-    var dom="";
+    var dom=[];
     if(this.state.EngSelected){
-      dom= dom + "Engineering "
+      dom.push("Engineering")
     }
     if(this.state.FinSelected){
-      dom = dom + "Finance "
+      dom.push("Finance")
     }
     if(this.state.TeleComSelected){
-      dom = dom + "Telecommunication "
+      dom.push("Telecommunication")
     }
     if(this.state.MedSelected){
-      dom = dom + "Medicale "
+      dom.push("Medical")
     }
-    dom = dom.split(" ")
-    this.props.history.push('/Search', { search: this.state.search, region: this.state.region, domain:dom.join() })
+    this.props.history.push('/Search', { search: this.state.search, region: this.state.region, domain:dom })
   }
  
   render(){
+    var options = [ "User Experience Designer", "Software Developper", "Web Developper"]
     return (
       <div style={{width:"100%"}}>
         <div className="Home-content">
@@ -48,34 +45,52 @@ class HomePage extends React.Component {
               <h1>Find Job</h1>
               <div>
               <Form style={{display:"flex", marginTop:"20px"}}  onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="search" style={{width: "60%",marginRight: "5px"}} >
+                    <FormGroup controlId="search" style={{width: "60%" ,marginRight: "5px"}} >
                   
-                        <FormControl 
-                        style={{height: "50px"}}
-                        placeholder="Job title, Company name, .."
-                        value={this.state.search}
-                        onChange={this.handleChange}
-                        autoComplete="true"
+                        <Typeahead
+                          minLength={2}
+                         id="search"
+                          value={this.state.search}
+                          // onChange={this.handleChange}
+                          onChange={(selectedOptions) =>  this.setState({search : selectedOptions})}
+                          options={["User Experience Designer","McIntire Solutions, LLC" ,
+                           "Software Developper", "Shopify" ,
+                            "Web Developper", "Google, Inc." ,
+                            "Mobile Developper", "Amazon" ,
+                            "Full Stack Developper", "Nokia",
+                            "Co-op/Intern : Python Mathlab Programmer","Ciena",
+                            "Lion Tamer", "Amazing Circus", "Private Equity Analyst – Paid Internship",  "Senior Vice President" ,
+                            "Ottawa Skin Clinic", "Medical Aesthetic Receptionist", "Medical / Writer Researcher", "Thera-Business",
+                            "Fiber Splicing Technician", "Telecom engineer"
+                          ]}
+                          placeholder="Job title, Company name, .."
                         />
                        
                     </FormGroup>
                 
                      <FormGroup controlId="region" style={{width: "40%", marginRight: "5px"}}>
                   
-                        <FormControl
-                         style={{ height: "50px"}}
-                        placeholder="City, Province, .."
-                        value={this.state.region}
-                        onChange={this.handleChange}
-                        />
+                        <Typeahead
+                          minLength={2}
+                          id="search"
+                          value={this.state.search}
+                          // onChange={this.handleChange}
+                          onChange={(selectedOptions) =>  this.setState({region : selectedOptions})}
+                          options={["Ottawa, ON","Richmond, VA" ,
+                            "Montreal, QC", "Quebec, QC" ,
+                            "Regina, SK", 
+                            "Halifax, NS", "Edmonton, Alb" , "Kanata, ON", "Toronto, ON"
+                          ]}
+                          placeholder="City, Province, .."
+                      />
                          
                     </FormGroup>
                     <style type="text/css">
                       {`
                         form > button.btn {
-                          width: 50px; 
+                          width: fit-content; 
                           background-color: white;
-                          height: 50px;
+                          height: fit-content;
                         }
 
                         form > button.btn:hover {
@@ -106,25 +121,43 @@ class HomePage extends React.Component {
         <div className="container" style={{marginTop:"-100px", display:"flex", justifyContent:"center", textAlign:"center"}} >
            
             
-            <div className="btn-group" data-toggle="buttons">
-              <label className="btn btn-light" onClick={() => this.setState({EngSelected:!this.state.EngSelected})} style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}} >
+             <div className="btn-group" data-toggle="buttons">
+               <label className="btn btn-light" onClick={() => this.setState({EngSelected:!this.state.EngSelected})} style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}} >
+                 <span className="fa fa-cogs" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
+                 <h4 style={{ color: "#232323",fontSize: "22px"}}>Engineering</h4>
+               </label>
+               <label  className="btn btn-light" onClick={() => this.setState({FinSelected:!this.state.FinSelected})} style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}} >
+                 <span className="fa fa-dollar" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
+                 <h4 style={{ color: "#232323",fontSize: "22px"}}>Finance</h4>
+               </label>
+               <label  className="btn btn-light" onClick={() => this.setState({TeleComSelected:!this.state.TeleComSelected})} style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
+                 <span className="fa fa-phone" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
+                 <h4 style={{ color: "#232323",fontSize: "22px"}}>Telecommunication</h4>
+               </label>
+               <label  className="btn btn-light" onClick={() => this.setState({MedSelected:!this.state.MedSelected})} style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
+                 <span className="fa fa-plus-square" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
+                 <h4 style={{ color: "#232323",fontSize: "22px"}}>Medical</h4>
+               </label>
+            </div>
+            
+            {/* <ButtonGroup aria-label="Basic example">
+              <Button variant="light" style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
                 <span className="fa fa-cogs" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
                 <h4 style={{ color: "#232323",fontSize: "22px"}}>Engineering</h4>
-              </label>
-              <label  className="btn btn-light" onClick={() => this.setState({FinSelected:!this.state.FinSelected})} style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}} >
+              </Button>
+              <Button variant="light" style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
                 <span className="fa fa-dollar" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
                 <h4 style={{ color: "#232323",fontSize: "22px"}}>Finance</h4>
-              </label>
-              <label  className="btn btn-light" onClick={() => this.setState({TeleComSelected:!this.state.TeleComSelected})} style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
+              </Button>
+              <Button variant="light" style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
                 <span className="fa fa-phone" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
                 <h4 style={{ color: "#232323",fontSize: "22px"}}>Telecommunication</h4>
-              </label>
-              <label  className="btn btn-light" onClick={() => this.setState({MedSelected:!this.state.MedSelected})} style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
+              </Button>
+              <Button variant="light" style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
                 <span className="fa fa-plus-square" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
                 <h4 style={{ color: "#232323",fontSize: "22px"}}>Medical</h4>
-              </label>
-            </div>
-                      
+              </Button>
+            </ButtonGroup>       */}
         </div>
         <div className="container"  style={{ display:"flex", justifyContent:"left", textAlign:"center", marginBottom:"0"}}>
             <div style={{ width:"200px", height:"fit-content",   padding:"40px 40px", textAlign:"center", marginRight:"40px"}}>

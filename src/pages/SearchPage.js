@@ -1,58 +1,73 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import "./style.css"
 import Jobs from '../data/jobs'
 import Job from "./../component/Job"
-import {Form, FormGroup, FormControl, Button, style} from 'react-bootstrap'
+import {Form, FormGroup, Button, style} from 'react-bootstrap'
+import {Typeahead} from 'react-bootstrap-typeahead';
+import {withRouter} from 'react-router';
 
-export default class SearchPage extends React.Component {
+class SearchPage extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      search:"",
-      region:"",
+      search:[],
+      region:[],
       result:[]
      
     }
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
   }
   componentDidMount(){
-   
-   if(this.state.search === "" && this.props.location.state !== undefined ){
-     this.setState({
-           search:this.props.location.state.search,
-           region:this.props.location.state.region 
-          })
-          var res =[]
-          Jobs.map((e)=> {
-            if(e.jobTtitle.includes(this.state.search) ){
-              if(e.location.includes(this.state.region)){
-                res.unshift(e);
-      
+    var res =[]
+    const info = this.props.location.state
+
+    console.log(info)
+    if(info !== undefined){
+      if(info.domain.length !== 0){
+        info.domain.map((e) => {
+          console.log(e)
+          Jobs.map((l) => {
+            if(l.type === e){
+              if(l.jobTtitle === info.search.join() || l.company === info.search.join()){
+                if(l.location === info.region.join()){
+                  res.unshift(l)
+                }else{
+                  res.push(l)
+                }
               }else{
-                res.push(e);
+                res.push(l)
               }
+            }else{
+              
             }
-          });
-          this.setState({result:res});
-        }
+          })
+        })
+      }else{
+        Jobs.map((e)=> {
+          if(e.jobTtitle === info.search.join() || e.company === info.search.join() ){
+            if(e.location === info.region.join()){
+              res.unshift(e);
+    
+            }else{
+              res.push(e);
+            }
+          }
+        });
       }
-  handleChange = event => {
-    this.setState({
-        [event.target.id]: event.target.value,
-    });
+      
+    }
+   
+      this.setState({result:res});
   }
+
   
   handleSubmit = event => {
-
+   
     event.preventDefault();
-    
     var res =[]
     Jobs.map((e)=> {
-      if(e.jobTtitle === this.state.search ){
-        if(e.location === this.state.region){
-
+      if(e.jobTtitle === this.state.search.join() || e.company === this.state.search.join() ){
+        if(e.location === this.state.region.join()){
           res.unshift(e);
 
         }else{
@@ -73,34 +88,51 @@ export default class SearchPage extends React.Component {
       <div class="container">
           <div class="col-xs-12">
           <Form style={{display:"flex", marginTop:"20px"}} onSubmit={this.handleSubmit}  >
-                    <FormGroup controlId="search" style={{width: "60%",marginRight: "5px"}} >
+          <FormGroup controlId="search" style={{width: "60%" ,marginRight: "5px"}} >
                   
-                        <FormControl 
-                        style={{height: "50px"}}
-                        placeholder="Job title, Company name, .."
-                        value={this.state.search}
-                        onChange={this.handleChange}
-                        autoComplete="true"
-                        />
-                       
-                    </FormGroup>
-                
-                     <FormGroup controlId="region" style={{width: "40%", marginRight: "5px"}}>
-                  
-                        <FormControl
-                         style={{ height: "50px"}}
-                        placeholder="City, Province, .."
-                        value={this.state.region}
-                        onChange={this.handleChange}
-                        />
-                         
-                    </FormGroup>
+                  <Typeahead
+                    minLength={2}
+                   id="search"
+            
+                    onChange={(selectedOptions) =>  this.setState({search : selectedOptions})}
+                    options={["User Experience Designer","McIntire Solutions, LLC" ,
+                    "Software Developper", "Shopify" ,
+                     "Web Developper", "Google, Inc." ,
+                     "Mobile Developper", "Amazon" ,
+                     "Full Stack Developper", "Nokia",
+                     "Co-op/Intern : Python Mathlab Programmer","Ciena",
+                     "Lion Tamer", "Amazing Circus", "Private Equity Analyst – Paid Internship",  "Senior Vice President" ,
+                     "Ottawa Skin Clinic", "Medical Aesthetic Receptionist", "Medical / Writer Researcher", "Thera-Business",
+                     "Fiber Splicing Technician", "Telecom engineer"
+                   ]}
+                    selected = {this.state.search}
+                    placeholder="Job title, Company name, .."
+                  />
+                 
+              </FormGroup>
+          
+               <FormGroup controlId="region" style={{width: "40%", marginRight: "5px"}}>
+            
+                  <Typeahead
+                    minLength={2}
+                    id="search"
+                    onChange={(selectedOptions) =>  this.setState({region : selectedOptions})}
+                    options={["Ottawa, ON","Richmond, VA" ,
+                      "Montreal, QC", "Quebec, QC" ,
+                      "Regina, SK",
+                      "Halifax, NS", "Edmonton, Alb" , "Kanata, ON"
+                    ]}
+                    selected = {this.state.region}
+                    placeholder="City, Province, .."
+                />
+                   
+              </FormGroup>
                     <style type="text/css">
                       {`
                         form > button.btn {
-                          width: 50px; 
+                          width: fit-content; 
                           background-color: white;
-                          height: 50px;
+                          height: fit-content;
                         }
 
                        
@@ -112,16 +144,11 @@ export default class SearchPage extends React.Component {
                         type="submit">
                         <span className="fa fa-search"></span>
                     </Button>
-
                     
-                    
-                   
-                
-               
                 </Form>
             <div class="section-title-wrap">
               <h3 class="section-title">
-                <b>{this.state.result.length}</b> Jobs Found
+                <b>{this.state.result.length}</b> Jobs Found 
               </h3>
             </div>
             <div class="item-listing">
@@ -140,3 +167,4 @@ export default class SearchPage extends React.Component {
     )
   }
 }
+export default  withRouter(SearchPage);

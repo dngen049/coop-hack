@@ -13,8 +13,8 @@ export default class JobDetailPage extends React.Component {
  
 
   render(){
-    const x = jobs.find(((data) => data.jobID === "Job1"))
-    console.log(x.jobTtitle);
+    const x = jobs.find(((data) => data.jobID === this.props.match.params.id))
+    console.log(this.props.match.params.id);
     return (
 
       <div id="page">
@@ -114,10 +114,10 @@ export default class JobDetailPage extends React.Component {
 										<div className="list-item list-item-sm">
 											<div className="list-item-main-info">
 												<p className="list-item-title">
-													<a href="single-job.html">Lion Tamer</a>
+													<Link to="/Job/Job6">Lion Tamer</Link>
 												</p>
 												<div className="list-item-meta">
-													<a href="" className="list-item-tag item-badge" style={{backgroundColor: "#0071c2"}}>3.7/5.0</a>
+													<p href="" className="list-item-tag item-badge" style={{backgroundColor: "#0071c2"}}>3.7/5.0</p>
 													<span className="list-item-company">Amazing Circus</span>
 												</div>
 											</div>
@@ -125,10 +125,10 @@ export default class JobDetailPage extends React.Component {
 										<div className="list-item list-item-sm">
 											<div className="list-item-main-info">
 												<p className="list-item-title">
-													<a href="single-job.html">User Experience Designer</a>
+													<Link to="/Job/Job2">User Experience Designer</Link>
 												</p>
 												<div className="list-item-meta">
-													<a href="" className="list-item-tag item-badge" style={{backgroundColor:"#ec1a5b"}}>3.0/5.0</a>
+													<p href="" className="list-item-tag item-badge" style={{backgroundColor:"#ec1a5b"}}>3.0/5.0</p>
 													<span className="list-item-company">McIntire Solutions, LLC</span>
 												</div>
 											</div>
@@ -136,10 +136,10 @@ export default class JobDetailPage extends React.Component {
 										<div className="list-item list-item-sm">
 											<div className="list-item-main-info">
 												<p className="list-item-title">
-													<a href="single-job.html">Software Tester</a>
+													<Link to="/Job/Job4">Software Tester</Link>
 												</p>
 												<div className="list-item-meta">
-													<a href="" className="list-item-tag item-badge" style={{backgroundColor: "#1fbbb4"}}>4.4/5.0</a>
+													<p href="" className="list-item-tag item-badge" style={{backgroundColor: "#1fbbb4"}}>4.4/5.0</p>
 													<span className="list-item-company">McIntire Solutions, LLC</span>
 												</div>
 											</div>
@@ -147,10 +147,10 @@ export default class JobDetailPage extends React.Component {
 										<div className="list-item list-item-sm">
 											<div className="list-item-main-info">
 												<p className="list-item-title">
-													<a href="single-job.html">Senior Software Engineer</a>
+													<Link to="/Job/Job5">Senior Software Engineer</Link>
 												</p>
 												<div className="list-item-meta">
-													<a href="" className="list-item-tag item-badge" style={{backgroundColor: "#f26d46"}}>2.5/5.0</a>
+													<p href="" className="list-item-tag item-badge" style={{backgroundColor: "#f26d46"}}>2.5/5.0</p>
 													<span className="list-item-company">Google, Inc.</span>
 												</div>
 											</div>

@@ -79,8 +79,11 @@ class SearchPage extends React.Component {
     this.setState({result:res});
     
   }
-  render(){
+ 
+ 
 
+  render(){
+    
     
     return (
       <div className="container">
@@ -148,7 +151,9 @@ class SearchPage extends React.Component {
                 </Form>
             <div class="section-title-wrap">
               <h3 class="section-title">
-                <b>{this.state.result.length}</b> Jobs Found 
+                
+               <b>{this.state.result.length}</b> Jobs Found 
+                
               </h3>
             </div>
             <div class="item-listing">

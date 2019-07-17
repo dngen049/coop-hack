@@ -13,7 +13,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.ciena.ca/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     },
@@ -49,7 +49,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.mcintiresolutions.com/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     
@@ -68,7 +68,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.shopify.ca/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     
@@ -87,7 +87,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.mcintiresolutions.com/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     
@@ -125,7 +125,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.circusvegasonwheels.com/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     
@@ -144,7 +144,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.circusvegasonwheels.com/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     
@@ -163,7 +163,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.nokia.com/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     
@@ -182,7 +182,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.ciena.ca/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     
@@ -201,7 +201,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.nokia.com/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     },
@@ -219,7 +219,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.ottawaskinclinic.ca/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     },
@@ -237,7 +237,7 @@ const jobs = [
         u1:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u2:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
         u3:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ex!",
-        url:"https://www.google.com",
+        url:"https://www.therabusiness.com/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
     },

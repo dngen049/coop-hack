@@ -7,6 +7,11 @@ export default class ApplicationPage extends React.Component {
     super(props)
   }
 
+  removeElement(elementId) {
+    //var element = document.activeElement.getElementById(elementId);
+    //element.parentNode.removeChild(element);
+  }
+
   render(){
     return (
       <div className="container">
@@ -27,11 +32,11 @@ export default class ApplicationPage extends React.Component {
                 <div class="list-item col-sm-10">
                   <div class="list-item-main-info">
                     <p class="list-item-title">
-                      <a href="single-job.html">User Experience Designer</a>
+                      <a href="/Job/Job1">User Experience Designer</a>
                     </p>
                     <div class="list-item-meta">
-                      <a href="" class="list-item-tag item-badge">4.5/5.0</a>
-                      <span class="list-item-company">McIntire Solutions, LLC (Richmond, VA)</span>
+                      <a href="" class="list-item-tag item-badge">4.2/5.0</a>
+                      <span class="list-item-company">Google, Inc. (Richmond, VA)</span>
                     </div>
                   </div>
                   <div class="list-item-secondary-info">
@@ -66,7 +71,7 @@ export default class ApplicationPage extends React.Component {
                 <div class="list-item col-sm-10">
                   <div class="list-item-main-info">
                     <p class="list-item-title">
-                      <a href="single-job.html">Co-op/Intern : Python Mathlab Programmer</a>
+                      <a href="/Job/Job0">Co-op/Intern : Python Mathlab Programmer</a>
                     </p>
                     <div class="list-item-meta">
                       <a href="" class="list-item-tag item-badge">4.5/5.0</a>
@@ -105,11 +110,11 @@ export default class ApplicationPage extends React.Component {
                 <div class="list-item col-sm-10">
                   <div class="list-item-main-info">
                     <p class="list-item-title">
-                      <a href="single-job.html">Game Generalist Programmer</a>
+                      <a href="/Job/Job3">Software Developer</a>
                     </p>
                     <div class="list-item-meta">
-                      <a href="" class="list-item-tag item-badge">5.0/5.0</a>
-                      <span class="list-item-company">Keywords Studios (Ottawa, ON)</span>
+                      <a href="" class="list-item-tag item-badge">4.0/5.0</a>
+                      <span class="list-item-company">Shopify (Quebec, QC)</span>
                     </div>
                   </div>
                   <div class="list-item-secondary-info">
@@ -139,12 +144,12 @@ export default class ApplicationPage extends React.Component {
 
               </div>
 
-              <div class="row">
+              <div id="divJob3" class="row">
 
                 <div class="list-item col-sm-10">
                   <div class="list-item-main-info">
                     <p class="list-item-title">
-                      <a href="single-job.html">Junior Java Developer</a>
+                      <a>Junior Java Developer</a>
                     </p>
                     <div class="list-item-meta">
                       <a href="" class="list-item-tag item-badge">4.0/5.0</a>
@@ -152,8 +157,8 @@ export default class ApplicationPage extends React.Component {
                     </div>
                   </div>
                   <div class="list-item-secondary-info">
-                    <p class="list-item-location" style={{color: "#c70700", fontWeight: "bold"}}>Rejected</p>
-                    <time class="list-item-time">Applied 2 weeks ago</time>
+                    <p class="list-item-location" style={{color: "#c70700", fontWeight: "bold"}}>Rejected / Expired</p>
+                    <time class="list-item-time">Applied 3 weeks ago</time>
                   </div>
                 </div>
 
@@ -163,7 +168,8 @@ export default class ApplicationPage extends React.Component {
                     style={{marginTop: "30px", marginLeft: "20px"}}
                     variant="danger"
                     type="submit"
-                    size="lg">
+                    size="lg"
+                    onClick={this.removeElement("divJob3")}>
                     <span className="fa fa-trash"></span>
                   </Button>
                 </div>

@@ -2,15 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "./style.css"
 import jobs from '../data/jobs'
+import {Button} from 'react-bootstrap'
+import {withRouter} from 'react-router';
 
 
 
-
-export default class JobDetailPage extends React.Component {
+ class JobDetailPage extends React.Component {
   constructor(props){
     super(props)
   }
- 
+  
+  handleSubmit(){
+	alert("Your application was sent");
+	this.props.history.push('/Search');
+  }
 
   render(){
     const x = jobs.find(((data) => data.jobID === this.props.match.params.id))
@@ -49,12 +54,12 @@ export default class JobDetailPage extends React.Component {
 										<ul>
 											<li>{x.u1}</li>
 											<li>{x.u2}</li>
-                      <li>{x.u3}</li>
+                      						<li>{x.u3}</li>
 										</ul>
 										<p>{x.p3}</p>
 									</div>
 								</article>
-								<a href="" className="btn btn-block btn-apply-content">Apply for this job</a>
+								<Button variant="primary" onClick={this.handleSubmit} >Apply for this job</Button>
 							</div>
 							<div className="content-wrap-footer">
 								<div className="row">
@@ -169,3 +174,4 @@ export default class JobDetailPage extends React.Component {
     )
   }
 }
+export default withRouter(JobDetailPage)

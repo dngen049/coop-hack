@@ -1,7 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router';
 import {Typeahead} from 'react-bootstrap-typeahead';
-import {Form, FormGroup, Button, ButtonGroup} from 'react-bootstrap'
+import {Form, FormGroup, Button} from 'react-bootstrap'
 import CountUp from 'react-countup';
 import "./HomePage.css"
 
@@ -139,25 +139,7 @@ class HomePage extends React.Component {
                  <h4 style={{ color: "#232323",fontSize: "22px"}}>Medical</h4>
                </label>
             </div>
-            
-            {/* <ButtonGroup aria-label="Basic example">
-              <Button variant="light" style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
-                <span className="fa fa-cogs" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
-                <h4 style={{ color: "#232323",fontSize: "22px"}}>Engineering</h4>
-              </Button>
-              <Button variant="light" style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
-                <span className="fa fa-dollar" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
-                <h4 style={{ color: "#232323",fontSize: "22px"}}>Finance</h4>
-              </Button>
-              <Button variant="light" style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
-                <span className="fa fa-phone" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
-                <h4 style={{ color: "#232323",fontSize: "22px"}}>Telecommunication</h4>
-              </Button>
-              <Button variant="light" style={{minWidth: "200px", width: "max-content", height: "250px", marginRight: "40px", padding: "40px", textAlign: "center", borderRadius: "20px"}}>
-                <span className="fa fa-plus-square" style={{fontSize: "100px",color: "#007bff", maxWidth: "150px",marginBottom: "33px"}}></span>
-                <h4 style={{ color: "#232323",fontSize: "22px"}}>Medical</h4>
-              </Button>
-            </ButtonGroup>       */}
+          
         </div>
         <div className="container"  style={{ display:"flex", justifyContent:"left", textAlign:"center", marginBottom:"0"}}>
             <div style={{ width:"200px", height:"fit-content",   padding:"40px 40px", textAlign:"center", marginRight:"40px"}}>

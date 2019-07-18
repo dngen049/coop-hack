@@ -16,6 +16,7 @@ const jobs = [
         url:"https://www.ciena.ca/",
         img:"https://placehold.it/66x66",
         description:"There’s a lot of opportunity here to work on a wide range of very challenging projects and to grow quickly."
+        
     },
     {   
         key:"1234",

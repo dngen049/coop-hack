@@ -1,6 +1,6 @@
 import React from 'react'
-import {Button, style} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import {Button} from 'react-bootstrap'
+
 
 export default class ProfilePage extends React.Component {
   constructor(props){

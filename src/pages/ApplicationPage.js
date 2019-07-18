@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Applications from '../data/Application'
 import Application from './../component/Application'
 

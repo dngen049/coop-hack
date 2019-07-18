@@ -6,15 +6,17 @@ import {Button} from 'react-bootstrap'
 import {withRouter} from 'react-router';
 
 
-
  class JobDetailPage extends React.Component {
   constructor(props){
-    super(props)
+	super(props)
+	this.handleSubmit = this.handleSubmit.bind(this)
   }
   
   handleSubmit(){
 	alert("Your application was sent");
 	this.props.history.push('/Search');
+	
+
   }
 
   render(){

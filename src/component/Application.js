@@ -52,14 +52,7 @@ class Application extends React.Component{
                     size="lg">
                     <span className="fa fa-trash"></span>
                   </Button>
-                  { this.props.Appstate !== "Rejected / Expired" ?  <Button as={Link} to="/Profile"
-                    className="pull-right"
-                    style={{marginTop: "30px", marginLeft: "20px"}}
-                    variant="outline-primary"
-                    type="submit"
-                    size="lg">
-                    <span className="fa fa-pencil"></span>
-                  </Button> : null }
+                 
                  
                 </div>
 

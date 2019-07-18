@@ -8,7 +8,8 @@ const Applications = [
         location:"Richmond, VA",
         company:"Google, Inc.",
         AppState : "Pending",
-        Applied: "1 hour ago"
+        Applied: "1 hour ago",
+        deleted:"false"
     },
     {   
         key:"00000",
@@ -18,7 +19,8 @@ const Applications = [
         location:"Kanata, ON",
         company:"Ciena",
         AppState : "Pending",
-        Applied: "3 days ago"
+        Applied: "3 days ago",
+        deleted:"false"
      
     },
    
@@ -32,7 +34,8 @@ const Applications = [
         location:"Quebec, QC",
         company:"Shopify",
         AppState : "Selected for interview",
-        Applied: "6 days ago"
+        Applied: "6 days ago",
+        deleted:"false"
     
     },
 
@@ -45,7 +48,8 @@ const Applications = [
         location:"Kanata, ON",
         company:"IBM Canada",
         AppState : "Rejected / Expired",
-        Applied: "3 weeks ago"
+        Applied: "3 weeks ago",
+        deleted:"false"
     
     }
    

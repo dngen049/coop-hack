@@ -26,7 +26,6 @@ class SearchPage extends React.Component {
       this.setState({search:info.search, region:info.region})
       if(info.domain.length !== 0 && info.search.length !== 0 && info.region.length !== 0 ){
         info.domain.map((e) => {
-          console.log(e)
           Jobs.map((l) => {
             if(l.type === e){
               if(l.jobTtitle === info.search.join() || l.company === info.search.join()){
@@ -39,9 +38,8 @@ class SearchPage extends React.Component {
             }
           })
         })
-      }else if(info.domain.length !== 0 && info.search.length === 0){
+      }else if(info.domain.length !== 0 && info.search.length === 0 && info.region.length !== 0){
         info.domain.map((e) => {
-          console.log(e)
           Jobs.map((l) => {
             if(l.type === e){
               if(l.location === info.region.join()){
@@ -53,18 +51,46 @@ class SearchPage extends React.Component {
             }
           })
         })
+      } else if(info.domain.length !== 0 && info.search.length !== 0 && info.region.length === 0){
+        info.domain.map((e) => {
+          Jobs.map((l) => {
+            if(l.type === e){
+              if(l.jobTtitle === info.search.join() || l.company === info.search.join()){
+                res.push(l)
+              }
+            }
+          })
+        })
+      }else if(info.domain.length !== 0){
+        info.domain.map((e) => {
+          Jobs.map((l) => {
+            if(l.type === e){
+              res.push(l)
+            }
+          })
+        })
       }
       else{
-        Jobs.map((e)=> {
-          if(e.jobTtitle === info.search.join() || e.company === info.search.join() ){
+        if(info.search.length !== 0){
+          Jobs.map((e)=> {
+            if(e.jobTtitle === info.search.join() || e.company === info.search.join() ){
+              if(e.location === info.region.join()){
+                res.unshift(e);
+      
+              }else{
+                res.push(e);
+              }
+            }
+          });
+
+        }else{
+          Jobs.map((e)=> {
             if(e.location === info.region.join()){
-              res.unshift(e);
-    
-            }else{
               res.push(e);
             }
-          }
-        });
+       
+          });
+        }
       }
       
     }
@@ -77,17 +103,26 @@ class SearchPage extends React.Component {
    
     event.preventDefault();
     var res =[]
-    Jobs.map((e)=> {
-      if(e.jobTtitle === this.state.search.join() || e.company === this.state.search.join() ){
+    if(this.state.search.length  !== 0 ){
+      Jobs.map((e)=> {
+        if(e.jobTtitle === this.state.search.join() || e.company === this.state.search.join() ){
+          if(e.location === this.state.region.join()){
+            res.unshift(e);
+  
+          }else{
+            res.push(e);
+          }
+        }
+      });
+    }else{
+      Jobs.map((e)=> {
         if(e.location === this.state.region.join()){
-          res.unshift(e);
-
-        }else{
           res.push(e);
         }
-      }
-    });
-    console.log(res)
+        
+      });
+    }
+  
     this.setState({result:res});
     
   }

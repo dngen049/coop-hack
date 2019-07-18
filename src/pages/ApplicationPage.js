@@ -12,11 +12,20 @@ export default class ApplicationPage extends React.Component {
     this.removeElement = this.removeElement.bind(this)
   }
   componentDidMount(){
-    this.setState({apps:Applications})
+    var res =[]
+    Applications.map((e)=>{
+      if(e.deleted !== "true"){
+        res.push(e)
+      }
+    })
+    this.setState({apps:res})
   }
 
   removeElement(elementId) {
+    var el = Applications.find((data) => data.jobID === elementId)
+    el.deleted = "true"
     const arrayCopy = this.state.apps.filter(((data) => data.jobID !== elementId))
+    
     this.setState({apps: arrayCopy})
   }
 
@@ -35,7 +44,7 @@ export default class ApplicationPage extends React.Component {
 
             <div class="item-listing">
 
-             {this.state.apps.map(e => <Application JobID={e.jobID} jobTitle={e.jobTitle} 
+             {this.state.apps.map(e  => <Application JobID={e.jobID} jobTitle={e.jobTitle} 
                                                 rating ={e.rating} company={e.company} 
                                                 location={e.location} Appstate={e.AppState}
                                                 Applied={e.Applied} onRemove={this.removeElement}/>)}

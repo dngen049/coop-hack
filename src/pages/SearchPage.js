@@ -23,7 +23,8 @@ class SearchPage extends React.Component {
 
     console.log(info)
     if(info !== undefined){
-      if(info.domain.length !== 0){
+      this.setState({search:info.search, region:info.region})
+      if(info.domain.length !== 0 && info.search.length !== 0 && info.region.length !== 0 ){
         info.domain.map((e) => {
           console.log(e)
           Jobs.map((l) => {
@@ -34,15 +35,26 @@ class SearchPage extends React.Component {
                 }else{
                   res.push(l)
                 }
+              }
+            }
+          })
+        })
+      }else if(info.domain.length !== 0 && info.search.length === 0){
+        info.domain.map((e) => {
+          console.log(e)
+          Jobs.map((l) => {
+            if(l.type === e){
+              if(l.location === info.region.join()){
+                res.unshift(l)
               }else{
                 res.push(l)
               }
-            }else{
               
             }
           })
         })
-      }else{
+      }
+      else{
         Jobs.map((e)=> {
           if(e.jobTtitle === info.search.join() || e.company === info.search.join() ){
             if(e.location === info.region.join()){

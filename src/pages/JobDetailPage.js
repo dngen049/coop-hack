@@ -12,6 +12,8 @@ import {withRouter} from 'react-router';
 	this.handleSubmit = this.handleSubmit.bind(this)
   }
   
+  //Cette fonction se fait appeler lorsque on clicke apply now
+  //Ca va juste afficher un msg et ensuite rediriger a la page de Recherche
   handleSubmit(){
 	alert("Your application was sent");
 	this.props.history.push('/Search');

@@ -18,9 +18,10 @@ class HomePage extends React.Component {
     }
     
   }
- 
+  
+  //Cette fonction quand le user clique le bouton de recherche
   handleSubmit = event => {
-    var dom=[];
+    var dom=[]; //on verifie les domaine choisi et on cree un array des domaine choisi
     if(this.state.EngSelected){
       dom.push("Engineering")
     }
@@ -33,7 +34,8 @@ class HomePage extends React.Component {
     if(this.state.MedSelected){
       dom.push("Medical")
     }
-    this.props.history.push('/Search', { search: this.state.search, region: this.state.region, domain:dom })
+    //on redirige a la page de Recherche avec les parametres 
+    this.props.history.push('/Search', { search: this.state.search, region: this.state.region, domain:dom }) 
   }
  
   render(){
@@ -51,7 +53,6 @@ class HomePage extends React.Component {
                           minLength={2}
                          id="search"
                           value={this.state.search}
-                          // onChange={this.handleChange}
                           onChange={(selectedOptions) =>  this.setState({search : selectedOptions})}
                           options={["User Experience Designer","McIntire Solutions, LLC" ,
                            "Software Developper", "Shopify" ,
@@ -74,7 +75,6 @@ class HomePage extends React.Component {
                           minLength={2}
                           id="search"
                           value={this.state.search}
-                          // onChange={this.handleChange}
                           onChange={(selectedOptions) =>  this.setState({region : selectedOptions})}
                           options={["Ottawa, ON","Richmond, VA" ,
                             "Montreal, QC", "Quebec, QC" ,

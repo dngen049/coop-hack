@@ -4,6 +4,8 @@ import "./WelcomePage.css"
 import Quote from './../component/Quote'
 
 
+
+//Page Welcome 
 export default class WelcomePage extends React.Component {
   constructor(props){
     super(props)

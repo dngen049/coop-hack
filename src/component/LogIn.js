@@ -4,6 +4,7 @@ import {withRouter} from 'react-router';
 import users from '../data/users'
 import './Login.css';
 
+//composante pour l'authentification
 class LogIn extends React.Component{
     constructor(props){
         super(props)
@@ -22,6 +23,8 @@ class LogIn extends React.Component{
         };
         
     }
+    //Retourn  faux si les champs ne sont pas tous rempli
+    //Dependement s'il est en mode login ou non
     validateForm() {
         if(this.state.LogMode){
             return this.state.email.length > 0 && this.state.password.length > 0;
@@ -30,7 +33,8 @@ class LogIn extends React.Component{
         }
     }
    
-
+    //Cette fonction se charge de update le state
+    //Lorsque on ecrit dans un des champs de texte
     handleChange = event => {
         this.setState({
         [event.target.id]: event.target.value,   invalidEmail:false,
@@ -38,6 +42,11 @@ class LogIn extends React.Component{
     });
     }
 
+    //Dependament du logMode 
+    //Si c vrai on verfie la chaine du email 
+    //et si elle est correct on verifie par rapport a la BD si on peut trouver le user
+    //Si le user existe on grant passage sinon erreur
+    //Si logMode est Faux, on verifie si les champs sont bien rempli, sinon erreur
     handleSubmit = event => {
         event.preventDefault();
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

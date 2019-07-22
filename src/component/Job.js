@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
+//composante pour les jobs
 class Job extends React.Component{
     constructor(props){
         super(props)

@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-
+//composante pour les temoinages
 class Quote extends React.Component {
     constructor(props){
         super(props);

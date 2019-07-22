@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom'
 import { Navbar, Nav, Dropdown , DropdownButton} from "react-bootstrap"
 import "./NavigationBar.css"
 
+//composante sur bar de navigation
 class NavigationBar extends React.Component {
     constructor(props){
         super(props);
     }
     
     render() { 
+      
       const navDropdownTitle = (<span className="fa fa-user"></span>);
+      
+      //Ceci c pour cacher la bar si on est dans WelcomePage
         let navStyle = {
         };
         if(this.props.location.pathname === '/'){

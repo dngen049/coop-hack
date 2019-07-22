@@ -17,6 +17,10 @@ class SearchPage extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+  //Cette fonction se run au debut quand la page se load
+  //Si on a envoyer des parametre de recherche a partir du homepage
+  //on verifier dans la BD tout les job qui correspond bien au 3 parametre de recherche
   componentDidMount(){
     var res =[]
     const info = this.props.location.state
@@ -24,7 +28,7 @@ class SearchPage extends React.Component {
     console.log(info)
     if(info !== undefined){
       this.setState({search:info.search, region:info.region})
-      if(info.domain.length !== 0 && info.search.length !== 0 && info.region.length !== 0 ){
+      if(info.domain.length !== 0 && info.search.length !== 0 && info.region.length !== 0 ){ // si tout les parametre sont pas vide
         info.domain.map((e) => {
           Jobs.map((l) => {
             if(l.type === e){
@@ -38,7 +42,7 @@ class SearchPage extends React.Component {
             }
           })
         })
-      }else if(info.domain.length !== 0 && info.search.length === 0 && info.region.length !== 0){
+      }else if(info.domain.length !== 0 && info.search.length === 0 && info.region.length !== 0){ //si le parametre search est vide
         info.domain.map((e) => {
           Jobs.map((l) => {
             if(l.type === e){
@@ -51,7 +55,7 @@ class SearchPage extends React.Component {
             }
           })
         })
-      } else if(info.domain.length !== 0 && info.search.length !== 0 && info.region.length === 0){
+      } else if(info.domain.length !== 0 && info.search.length !== 0 && info.region.length === 0){ //si le parametre de region est vide
         info.domain.map((e) => {
           Jobs.map((l) => {
             if(l.type === e){
@@ -61,7 +65,7 @@ class SearchPage extends React.Component {
             }
           })
         })
-      }else if(info.domain.length !== 0){
+      }else if(info.domain.length !== 0){ // tout les autre sont vide apart domaine
         info.domain.map((e) => {
           Jobs.map((l) => {
             if(l.type === e){
@@ -98,10 +102,11 @@ class SearchPage extends React.Component {
       this.setState({result:res});
   }
 
-  
+  //Cette fonction se fait appeler lorsque le user clique sur le bouton de recherche
+  //Cette fonction se charge de fournir une liste des jobs par rapport aux 2 parametre de recherche 
   handleSubmit = event => {
    
-    event.preventDefault();
+    event.preventDefault(); // pour empecher que la page reloads
     var res =[]
     if(this.state.search.length  !== 0 ){
       Jobs.map((e)=> {
@@ -206,9 +211,7 @@ class SearchPage extends React.Component {
             <div class="item-listing">
               {this.state.result.map( e => <Job JobID={e.jobID} title={e.jobTtitle} company={e.company} location={e.location} />)}
           
-              {/* <div class="list-item-secondary-wrap">
-                <a href="" className="btn btn-round btn-white btn-transparent">Load More Jobs</a>
-              </div> */}
+             
             </div>
           </div>
          

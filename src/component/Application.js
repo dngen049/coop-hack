@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 
+//composante pour les applications 
 class Application extends React.Component{
     constructor(props){
         super(props)
@@ -10,9 +11,9 @@ class Application extends React.Component{
     }
   
     render(){
-        console.log(this.props);
-        var Statestyle={}
-
+       
+        //Ici on verifie l'etat de l'application et
+        // on change la couleur du texte par rapport a l'etat
         if(this.props.Appstate == "Selected for interview"){
             Statestyle={color: "#49c420", fontWeight: "bold"}
         }else if(this.props.Appstate == "Pending"){
@@ -20,6 +21,7 @@ class Application extends React.Component{
         }else{
             Statestyle={color: "#c70700", fontWeight: "bold"}
         }
+        //ICI on contruit le path 
         var link = "/Job/"+ this.props.JobID;
       
         return(

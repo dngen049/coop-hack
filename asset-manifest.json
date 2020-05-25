@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/coop-hack/static/css/main.1d5a74dc.chunk.css",
+    "main.js": "/coop-hack/static/js/main.4b46b4e5.chunk.js",
+    "main.js.map": "/coop-hack/static/js/main.4b46b4e5.chunk.js.map",
+    "runtime~main.js": "/coop-hack/static/js/runtime~main.b5dcb6cc.js",
+    "runtime~main.js.map": "/coop-hack/static/js/runtime~main.b5dcb6cc.js.map",
+    "static/css/2.1bea15ab.chunk.css": "/coop-hack/static/css/2.1bea15ab.chunk.css",
+    "static/js/2.b6ee1467.chunk.js": "/coop-hack/static/js/2.b6ee1467.chunk.js",
+    "static/js/2.b6ee1467.chunk.js.map": "/coop-hack/static/js/2.b6ee1467.chunk.js.map",
+    "index.html": "/coop-hack/index.html",
+    "precache-manifest.139c9decf72523ff747116a97ade9cb4.js": "/coop-hack/precache-manifest.139c9decf72523ff747116a97ade9cb4.js",
+    "service-worker.js": "/coop-hack/service-worker.js",
+    "static/css/2.1bea15ab.chunk.css.map": "/coop-hack/static/css/2.1bea15ab.chunk.css.map",
+    "static/css/main.1d5a74dc.chunk.css.map": "/coop-hack/static/css/main.1d5a74dc.chunk.css.map"
+  }
+}

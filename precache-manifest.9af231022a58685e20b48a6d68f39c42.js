@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fceed822fb0537434ab05c4fbb617b7e",
+    "revision": "e72bd51787e4f633cde8226908f5e6a4",
     "url": "/coop-hack/index.html"
   },
   {
-    "revision": "d97537708957c8891cfc",
+    "revision": "23c991ea34438516d32e",
     "url": "/coop-hack/static/css/2.1bea15ab.chunk.css"
   },
   {
-    "revision": "aaa6a6fd42394f6b99bb",
+    "revision": "e00e5ff8bcd76c7338f8",
     "url": "/coop-hack/static/css/main.1d5a74dc.chunk.css"
   },
   {
-    "revision": "d97537708957c8891cfc",
-    "url": "/coop-hack/static/js/2.b6ee1467.chunk.js"
+    "revision": "23c991ea34438516d32e",
+    "url": "/coop-hack/static/js/2.7b92516a.chunk.js"
   },
   {
-    "revision": "aaa6a6fd42394f6b99bb",
-    "url": "/coop-hack/static/js/main.4b46b4e5.chunk.js"
+    "revision": "e00e5ff8bcd76c7338f8",
+    "url": "/coop-hack/static/js/main.0a1ef746.chunk.js"
   },
   {
     "revision": "c52a27d6147037766935",

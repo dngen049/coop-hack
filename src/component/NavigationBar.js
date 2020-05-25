@@ -17,7 +17,7 @@ class NavigationBar extends React.Component {
       //Ceci c pour cacher la bar si on est dans WelcomePage
         let navStyle = {
         };
-        if(this.props.location.pathname === '/'){
+        if(this.props.location.pathname === '/coop-hack'){
             navStyle = {
                 display: 'none'
             };
@@ -34,9 +34,9 @@ class NavigationBar extends React.Component {
         <Navbar.Collapse  id="basic-navbar-nav">
           <Nav variant="pills" defaultActiveKey="/HomePage" style={{width:"100%"}}>
           <div className="mr-auto" style={{display:"flex"}}  >
-            <Nav.Link className="Brand"  eventKey="link-1"   as={Link} to="/HomePage" >Coop Hack</Nav.Link>
-            <Nav.Link  eventKey="link-2"   as={Link} to="/Search" > Search</Nav.Link>
-            <Nav.Link  eventKey="link-3"   as={Link} to="/App">My application</Nav.Link>
+            <Nav.Link className="Brand"  eventKey="link-1"   as={Link} to="/coop-hack/HomePage" >Coop Hack</Nav.Link>
+            <Nav.Link  eventKey="link-2"   as={Link} to="/coop-hack/Search" > Search</Nav.Link>
+            <Nav.Link  eventKey="link-3"   as={Link} to="/coop-hack/App">My application</Nav.Link>
            
           </div>
           <div  >
@@ -47,7 +47,7 @@ class NavigationBar extends React.Component {
                 title={navDropdownTitle}
                 id="dropdown-menu-align-right">
                   <Dropdown.Item ><span className="fa fa-cog" ></span> Setting</Dropdown.Item>
-                <Dropdown.Item eventKey="link-4" as={Link} to="/Profile"> <span className="fa fa-home"></span> Profile</Dropdown.Item>
+                <Dropdown.Item eventKey="link-4" as={Link} to="/coop-hack/Profile"> <span className="fa fa-home"></span> Profile</Dropdown.Item>
                 <Dropdown.Item as={Link} to="/"  ><span className="fa fa-sign-out"></span> Logout</Dropdown.Item>
             </DropdownButton>
           </div>

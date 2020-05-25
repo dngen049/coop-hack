@@ -35,7 +35,7 @@ class HomePage extends React.Component {
       dom.push("Medical")
     }
     //on redirige a la page de Recherche avec les parametres 
-    this.props.history.push('/Search', { search: this.state.search, region: this.state.region, domain:dom }) 
+    this.props.history.push('/coop-hack/Search', { search: this.state.search, region: this.state.region, domain:dom }) 
   }
  
   render(){

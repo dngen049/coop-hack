@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 
 import WelcomePage from './pages/WelcomePage'
@@ -18,12 +18,17 @@ export default function App(props) {
     <Router>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={WelcomePage} />
-        <Route path="/Homepage" component={Homepage} />
-        <Route path="/App" component={AppPage} />
-        <Route path="/Profile" component={Profile} />
-        <Route path="/Search" component={Search} />
-        <Route path="/Job/:id" component={Job} />
+      <Route exact path="/">
+        <Redirect to="/coop-hack" >
+
+        </Redirect>
+      </Route>
+        <Route exact path="/coop-hack" component={WelcomePage} />
+        <Route exact path="/coop-hack/Homepage" component={Homepage} />
+        <Route exact path="/coop-hack/App" component={AppPage} />
+        <Route exact path="/coop-hack/Profile" component={Profile} />
+        <Route exact path="/coop-hack/Search" component={Search} />
+        <Route exact path="/coop-hack/Job/:id" component={Job} />
         
       </Switch>
 

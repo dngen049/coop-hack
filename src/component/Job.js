@@ -10,7 +10,7 @@ class Job extends React.Component{
     }
   
     render(){
-        var link = "/Job/"+ this.props.JobID;
+        var link = "/coop-hack/Job/"+ this.props.JobID;
       
         return(
            

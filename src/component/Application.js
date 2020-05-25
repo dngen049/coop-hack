@@ -11,7 +11,7 @@ class Application extends React.Component{
     }
   
     render(){
-       
+       let Statestyle = {};
         //Ici on verifie l'etat de l'application et
         // on change la couleur du texte par rapport a l'etat
         if(this.props.Appstate == "Selected for interview"){

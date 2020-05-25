@@ -56,7 +56,7 @@ class LogIn extends React.Component{
                 console.log(user);
                 if(user !==  undefined){
                     if(user.passWord === this.state.password){
-                        this.props.history.push('/HomePage')
+                        this.props.history.push('/coop-hack/HomePage')
                     }else{
                         this.setState({ invalidPassword: true, PasswordErrorMsg:"Invalid password" });
                     }
@@ -69,7 +69,7 @@ class LogIn extends React.Component{
                 }else if(this.state.confirmpassword !== this.state.password){
                     this.setState({ invalidConfirmPassword: true });
                 }else{
-                    this.props.history.push('/HomePage')
+                    this.props.history.push('/coop-hack/Homepage')
                 }
             }
           

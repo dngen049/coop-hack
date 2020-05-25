@@ -16,7 +16,7 @@ import {withRouter} from 'react-router';
   //Ca va juste afficher un msg et ensuite rediriger a la page de Recherche
   handleSubmit(){
 	alert("Your application was sent");
-	this.props.history.push('/Search');
+	this.props.history.push('/coop-hack/Search');
 	
 
   }
